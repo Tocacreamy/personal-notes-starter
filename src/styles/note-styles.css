@@ -1,0 +1,39 @@
+.nav-container {
+  color: white;
+  padding: 20px;
+  border-bottom: 1px solid white;
+  margin-bottom: 20px;
+}
+
+.add-component {
+  width: 40%;
+  min-width: 500px;
+  margin: auto;
+}
+
+.component-container {
+  width: 70%;
+  min-width: 700px;
+  margin: auto;
+  min-height: 400px;
+  padding: 10px 0px;
+  height: auto;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.noteList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.noteCard {
+  border: 1px solid white;
+  padding: 10px;
+  max-width: 17rem;
+  height: auto;
+}
