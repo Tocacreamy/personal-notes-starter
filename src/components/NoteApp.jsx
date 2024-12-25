@@ -8,29 +8,58 @@ import { getInitialData } from "../utils";
 const NoteApp = () => {
   const data = getInitialData();
   const [notes, setNotes] = useState(data);
+  const [displayedNotes, setDisplayedNotes] = useState(notes);
+
 
   const onAddNote = (newNote) => {
-    setNotes([...notes, newNote]);
+    const updatedNotes = [...notes, newNote] ;
+    setNotes(updatedNotes);
+    setDisplayedNotes(updatedNotes);
   };
 
   const archiveUpdate = (targetNoteId) => {
-    const updatedNotes = notes.map(note => {
+    const updatedNotes = notes.map((note) => {
       if (note.id === targetNoteId) {
-        return { ...note, archived: !note.archived }; 
+        return { ...note, archived: !note.archived };
       }
-      return note; 
+      return note;
     });
 
     setNotes(updatedNotes);
+    setDisplayedNotes(updatedNotes);
+  };
 
+  const deleteUpdate = (targetNoteId) => {
+    const updatedNotes = notes.filter((note) => note.id !== targetNoteId);
+    setNotes(updatedNotes);
+    setDisplayedNotes(updatedNotes);
+  };
+
+  const searchUpdate = (searchInput) => {
+    console.log(searchInput);
+    if (searchInput.trim() === "") {
+      setDisplayedNotes(notes);
+    } else {
+      const updatedNotes = notes.filter((note) => note.title.toLowerCase().includes(searchInput.toLowerCase()));
+      console.log(updatedNotes)
+      setDisplayedNotes(updatedNotes);
+    }
   };
 
   return (
     <>
-      <NoteNav />
-      <NoteAdd addNote={onAddNote} notes={notes} />
-      <NoteActive notes={notes} archiveUpdate={archiveUpdate}/>
-      <NoteArchive notes={notes} archiveUpdate={archiveUpdate}/>
+      <NoteNav searchUpdate={searchUpdate} />
+      <NoteAdd addNote={onAddNote} />
+      <NoteActive
+        notes={displayedNotes}
+        archiveUpdate={archiveUpdate}
+        deleteUpdate={deleteUpdate}
+      />
+      <NoteArchive
+        notes={displayedNotes}
+        archiveUpdate={archiveUpdate}
+        deleteUpdate={deleteUpdate}
+      />
     </>
   );
 };

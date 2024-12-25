@@ -1,24 +1,31 @@
 import React, { useState } from "react";
 import "../styles/note-styles.css";
 
-const NoteAdd = ({addNote,notes}) => {
-
+const NoteAdd = ({ addNote, notes }) => {
   const [newNoteTitle, setNewNoteTitle] = useState("");
   const [newNoteBody, setNewNoteBody] = useState("");
+  const [text, setText] = useState("");
 
   const onTitleChange = (event) => {
-    setNewNoteTitle(event.target.value);
+    const input = event.target.value;
+    setNewNoteTitle(input);
+
+    if (input.length <= 50) {
+      setText(input);
+
+    }
   };
 
   const onBodyChange = (event) => {
-    setNewNoteBody(event.target.value);
+    const input = event.target.value;
+    setNewNoteBody(input);
   };
 
   const onSubmitEventHandler = (event) => {
     event.preventDefault();
 
     const newNote = {
-      id: notes.length + 1,
+      id: +new Date(),
       title: newNoteTitle,
       body: newNoteBody,
       createdAt: new Date().toISOString(),
@@ -34,6 +41,7 @@ const NoteAdd = ({addNote,notes}) => {
   return (
     <div className="add-component">
       <h2>Buat Catatan</h2>
+      <p className="limitCharacterInput">{text.length}/50 karakter</p>
       <form onSubmit={onSubmitEventHandler} className="form-container">
         <input
           type="text"
@@ -41,6 +49,7 @@ const NoteAdd = ({addNote,notes}) => {
           value={newNoteTitle}
           onChange={onTitleChange}
           required
+          maxLength={50}
         />
         <input
           type="text"

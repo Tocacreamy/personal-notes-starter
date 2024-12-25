@@ -3,6 +3,9 @@
   padding: 20px;
   border-bottom: 1px solid white;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .add-component {
@@ -36,4 +39,8 @@
   padding: 10px;
   max-width: 17rem;
   height: auto;
+}
+
+.limitCharacterInput {
+  color: dimgray;
 }
