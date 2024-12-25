@@ -13,7 +13,7 @@ const NoteArchive = ({ notes, archiveUpdate,deleteUpdate }) => {
   };
   return (
     <div className="component-container">
-      <h2>Arsip</h2>
+      <h2 className="primary-text">Arsip</h2>
       <div className="noteList">
         {notesFiltered < 1
           ? `tidak ada catatan yang diarsipkan`

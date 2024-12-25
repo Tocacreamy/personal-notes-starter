@@ -9,10 +9,11 @@ const NoteApp = () => {
   const data = getInitialData();
   const [notes, setNotes] = useState(data);
   const [displayedNotes, setDisplayedNotes] = useState(notes);
+  const [isVisible, setIsVisible] = useState(true);
 
 
   const onAddNote = (newNote) => {
-    const updatedNotes = [...notes, newNote] ;
+    const updatedNotes = [...notes, newNote];
     setNotes(updatedNotes);
     setDisplayedNotes(updatedNotes);
   };
@@ -36,20 +37,23 @@ const NoteApp = () => {
   };
 
   const searchUpdate = (searchInput) => {
-    console.log(searchInput);
     if (searchInput.trim() === "") {
       setDisplayedNotes(notes);
+      setIsVisible(true)
     } else {
-      const updatedNotes = notes.filter((note) => note.title.toLowerCase().includes(searchInput.toLowerCase()));
-      console.log(updatedNotes)
+      const updatedNotes = notes.filter((note) =>
+        note.title.toLowerCase().includes(searchInput.toLowerCase())
+      );
+      console.log(updatedNotes);
       setDisplayedNotes(updatedNotes);
+      setIsVisible(false)
     }
   };
 
   return (
     <>
       <NoteNav searchUpdate={searchUpdate} />
-      <NoteAdd addNote={onAddNote} />
+      {isVisible && <NoteAdd addNote={onAddNote} />}
       <NoteActive
         notes={displayedNotes}
         archiveUpdate={archiveUpdate}

@@ -40,25 +40,26 @@ const NoteAdd = ({ addNote, notes }) => {
 
   return (
     <div className="add-component">
-      <h2>Buat Catatan</h2>
+      <h2 className="primary-text">Buat Catatan</h2>
       <p className="limitCharacterInput">{text.length}/50 karakter</p>
       <form onSubmit={onSubmitEventHandler} className="form-container">
         <input
           type="text"
-          placeholder="judul note.."
+          placeholder="judul.."
           value={newNoteTitle}
           onChange={onTitleChange}
           required
           maxLength={50}
         />
-        <input
+        <textarea
           type="text"
           placeholder="Tulis catatanmu.."
           value={newNoteBody}
           onChange={onBodyChange}
           required
+          className="wide-column"
         />
-        <button type="submit">Buat</button>
+        <button type="submit" className="theButton">Buat</button>
       </form>
     </div>
   );

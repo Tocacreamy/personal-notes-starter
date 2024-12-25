@@ -16,6 +16,7 @@ const NoteSearch = ({searchUpdate}) => {
         placeholder="Cari catatan.."
         onChange={toSearchUpdate}
         value={searchInput}
+        className="search-box"
       />
     </>
   );

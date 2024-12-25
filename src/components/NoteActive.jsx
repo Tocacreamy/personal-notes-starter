@@ -13,7 +13,7 @@ const NoteActive = ({ notes, archiveUpdate, deleteUpdate }) => {
   };
   return (
     <div className="component-container">
-      <h2>Catatan</h2>
+      <h2 className="primary-text">Catatan</h2>
       <div className="noteList">
         {notesFiltered < 1
           ? `tidak ada catatan`

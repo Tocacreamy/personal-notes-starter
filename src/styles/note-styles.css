@@ -1,7 +1,21 @@
+:root {
+  --white: white;
+  --grey: #707070;
+  --yellow: #ffea00;
+  --red: red;
+  --black : #000000;
+  --aqua : aqua ;
+  --violet : violet ;
+}
+
+#root{
+  padding-bottom: 300px;
+}
+
 .nav-container {
-  color: white;
+  color: var(--white);
   padding: 20px;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid var(--white);
   margin-bottom: 20px;
   display: flex;
   justify-content: space-around;
@@ -18,7 +32,7 @@
   width: 70%;
   min-width: 700px;
   margin: auto;
-  min-height: 400px;
+  min-height: 100px;
   padding: 10px 0px;
   height: auto;
 }
@@ -28,19 +42,119 @@
   flex-direction: column;
 }
 
+.wide-column{
+  height: 200px;
+  width: auto;
+  text-align: start;
+}
+
 .noteList {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
+  width: 100%;
+  color: var(--grey) ;
+  font-style: italic;
 }
 
 .noteCard {
-  border: 1px solid white;
+  border: 1px solid var(--white);
   padding: 10px;
-  max-width: 17rem;
   height: auto;
+  width: 24%;
+  min-width: 250px;
+  margin: 0.5% 0.5%;
+  display: flex;
+  flex-direction: column;
+  transition: all 700ms ease;
+  color: var(--white);
+  font-style: normal;
+}
+
+.noteCard:hover{
+  box-shadow: 0px 0px 10px 0px var(--grey);
+}
+
+.textNote {
+  color: var(--white);
+  margin: 13px 0px;
+  font-size: 0.9em;
+}
+
+.dateText {
+  color: var(--grey);
+  margin: 5px 0px;
 }
 
 .limitCharacterInput {
-  color: dimgray;
+  color: var(--grey);
+}
+
+.buttons {
+  display: flex;
+  gap: 1%;
+  height: auto;
+  flex-grow: 1;
+}
+
+.theButton {
+  padding: 10px;
+  cursor: pointer;
+  transition: all 300ms ease;
+  color: aqua;
+  border: var(--aqua) solid 1px;
+  background-color: transparent;
+}
+
+.theButton:hover {
+  padding: 10px;
+  cursor: pointer;
+  transition: all 300ms ease;
+  background-color: aqua;
+  color: var(--black);  
+  box-shadow: 0px 0px 10px 0px var(--aqua);
+}
+
+.archiveButton {
+  background-color: transparent;
+  width: 50%;
+  color: var(--yellow);
+  border: var(--yellow) solid 1px;
+  height: auto;
+  align-self: flex-end;
+}
+
+.deleteButton {
+  background-color: transparent;
+  width: 50%;
+  color: var(--red);
+  border: var(--red) solid 1px;
+  height: auto;
+  align-self: flex-end;
+}
+
+.primary-text{
+  color: var(--yellow);
+  margin: 30px 0px;
+}
+
+.deleteButton:hover{
+  background-color: var(--red);
+  color: black;
+  box-shadow: 0px 0px 15px 0px var(--red);
+}
+
+.archiveButton:hover{
+  background-color: var(--yellow);
+  color: var(--black);
+  box-shadow: 0px 0px 15px 0px var(--yellow);
+}
+
+.search-box{
+  border: var(--violet) 1px solid;
+  transition: all 800ms ease;
+}
+.search-box:focus{
+  border: var(--violet) 1px solid;
+  outline: none;
+  box-shadow: 0px 0px 10px 0px var(--violet);
 }

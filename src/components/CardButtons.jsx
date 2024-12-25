@@ -9,11 +9,11 @@ const CardButtons = ({ note, archiveUpdate,deleteUpdate }) => {
     deleteUpdate(note.id)
   }
   return (
-    <div>
-      <button onClick={handlerToArchiveUpdate}>
+    <div className="buttons">
+      <button onClick={handlerToArchiveUpdate} className="theButton archiveButton">
         {note.archived ? "Pindahkan": "Arsipkan"}
       </button>
-      <button onClick={handlerToDelete}>
+      <button onClick={handlerToDelete} className="theButton deleteButton">
         Hapus
       </button>
     </div>
